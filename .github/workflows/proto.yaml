@@ -1,12 +1,14 @@
 name: "Protocol Buffers Generation"
 on:
   push:
-    tags: 
+    tags:
       - v**
     branches: [main]
   pull_request:
     branches: [main]
-    
+
+permissions:
+  contents: write
 
 jobs:
   build:
