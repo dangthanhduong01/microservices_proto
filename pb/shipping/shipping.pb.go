@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        v3.21.12
-// source: shipping/shipping.proto
+// source: shipping.proto
 
 package shipping
 
@@ -31,7 +31,7 @@ type CreateShippingRequest struct {
 
 func (x *CreateShippingRequest) Reset() {
 	*x = CreateShippingRequest{}
-	mi := &file_shipping_shipping_proto_msgTypes[0]
+	mi := &file_shipping_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +43,7 @@ func (x *CreateShippingRequest) String() string {
 func (*CreateShippingRequest) ProtoMessage() {}
 
 func (x *CreateShippingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_shipping_shipping_proto_msgTypes[0]
+	mi := &file_shipping_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *CreateShippingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateShippingRequest.ProtoReflect.Descriptor instead.
 func (*CreateShippingRequest) Descriptor() ([]byte, []int) {
-	return file_shipping_shipping_proto_rawDescGZIP(), []int{0}
+	return file_shipping_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *CreateShippingRequest) GetOrderId() string {
@@ -83,7 +83,7 @@ type CreateShippingResponse struct {
 
 func (x *CreateShippingResponse) Reset() {
 	*x = CreateShippingResponse{}
-	mi := &file_shipping_shipping_proto_msgTypes[1]
+	mi := &file_shipping_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -95,7 +95,7 @@ func (x *CreateShippingResponse) String() string {
 func (*CreateShippingResponse) ProtoMessage() {}
 
 func (x *CreateShippingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_shipping_shipping_proto_msgTypes[1]
+	mi := &file_shipping_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -108,7 +108,7 @@ func (x *CreateShippingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateShippingResponse.ProtoReflect.Descriptor instead.
 func (*CreateShippingResponse) Descriptor() ([]byte, []int) {
-	return file_shipping_shipping_proto_rawDescGZIP(), []int{1}
+	return file_shipping_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateShippingResponse) GetTrackingId() string {
@@ -125,11 +125,11 @@ func (x *CreateShippingResponse) GetStatus() string {
 	return ""
 }
 
-var File_shipping_shipping_proto protoreflect.FileDescriptor
+var File_shipping_proto protoreflect.FileDescriptor
 
-const file_shipping_shipping_proto_rawDesc = "" +
+const file_shipping_proto_rawDesc = "" +
 	"\n" +
-	"\x17shipping/shipping.proto\x12\bshipping\"L\n" +
+	"\x0eshipping.proto\x12\bshipping\"L\n" +
 	"\x15CreateShippingRequest\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x18\n" +
 	"\aaddress\x18\x02 \x01(\tR\aaddress\"Q\n" +
@@ -138,26 +138,26 @@ const file_shipping_shipping_proto_rawDesc = "" +
 	"trackingId\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status2W\n" +
 	"\bShipping\x12K\n" +
-	"\x06Create\x12\x1f.shipping.CreateShippingRequest\x1a .shipping.CreateShippingResponseB:Z8github.com/dangthanhduong01/microservices_proto/shippingb\x06proto3"
+	"\x06Create\x12\x1f.shipping.CreateShippingRequest\x1a .shipping.CreateShippingResponseB=Z;github.com/dangthanhduong01/microservices_proto/pb/shippingb\x06proto3"
 
 var (
-	file_shipping_shipping_proto_rawDescOnce sync.Once
-	file_shipping_shipping_proto_rawDescData []byte
+	file_shipping_proto_rawDescOnce sync.Once
+	file_shipping_proto_rawDescData []byte
 )
 
-func file_shipping_shipping_proto_rawDescGZIP() []byte {
-	file_shipping_shipping_proto_rawDescOnce.Do(func() {
-		file_shipping_shipping_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_shipping_shipping_proto_rawDesc), len(file_shipping_shipping_proto_rawDesc)))
+func file_shipping_proto_rawDescGZIP() []byte {
+	file_shipping_proto_rawDescOnce.Do(func() {
+		file_shipping_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_shipping_proto_rawDesc), len(file_shipping_proto_rawDesc)))
 	})
-	return file_shipping_shipping_proto_rawDescData
+	return file_shipping_proto_rawDescData
 }
 
-var file_shipping_shipping_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_shipping_shipping_proto_goTypes = []any{
+var file_shipping_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_shipping_proto_goTypes = []any{
 	(*CreateShippingRequest)(nil),  // 0: shipping.CreateShippingRequest
 	(*CreateShippingResponse)(nil), // 1: shipping.CreateShippingResponse
 }
-var file_shipping_shipping_proto_depIdxs = []int32{
+var file_shipping_proto_depIdxs = []int32{
 	0, // 0: shipping.Shipping.Create:input_type -> shipping.CreateShippingRequest
 	1, // 1: shipping.Shipping.Create:output_type -> shipping.CreateShippingResponse
 	1, // [1:2] is the sub-list for method output_type
@@ -167,26 +167,26 @@ var file_shipping_shipping_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_shipping_shipping_proto_init() }
-func file_shipping_shipping_proto_init() {
-	if File_shipping_shipping_proto != nil {
+func init() { file_shipping_proto_init() }
+func file_shipping_proto_init() {
+	if File_shipping_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_shipping_shipping_proto_rawDesc), len(file_shipping_shipping_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_shipping_proto_rawDesc), len(file_shipping_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_shipping_shipping_proto_goTypes,
-		DependencyIndexes: file_shipping_shipping_proto_depIdxs,
-		MessageInfos:      file_shipping_shipping_proto_msgTypes,
+		GoTypes:           file_shipping_proto_goTypes,
+		DependencyIndexes: file_shipping_proto_depIdxs,
+		MessageInfos:      file_shipping_proto_msgTypes,
 	}.Build()
-	File_shipping_shipping_proto = out.File
-	file_shipping_shipping_proto_goTypes = nil
-	file_shipping_shipping_proto_depIdxs = nil
+	File_shipping_proto = out.File
+	file_shipping_proto_goTypes = nil
+	file_shipping_proto_depIdxs = nil
 }
