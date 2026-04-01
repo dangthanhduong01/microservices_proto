@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "github.com/dangthanhduong01/microservices_proto/auth";
+
+message VerifyEmailRequest {
+    string email = 1;
+    string verification_code = 2;
+}
+
+message VerifyEmailResponse {
+    bool success = 1;
+}

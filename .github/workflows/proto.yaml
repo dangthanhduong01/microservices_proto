@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: ["order", "payment", "shipping"]
+        service: ["order", "payment", "shipping", "auth"]
     steps:
       - name: Install go
         uses: actions/setup-go@v3
