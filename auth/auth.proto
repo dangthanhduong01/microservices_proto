@@ -1,69 +1,13 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
+import "register_user.proto";
+import "login_user.proto";
+import "update_user.proto";
+import "verify_email.proto";
 
 option go_package = "github.com/dangthanhduong01/microservices_proto/auth";
 
-message User {
-    string id = 1;
-    string username = 2;
-    string email = 3;
-    google.protobuf.Timestamp created_at = 4;
-    google.protobuf.Timestamp updated_at = 5;
-}
 
-message RegisterUserRequest {
-    string username = 1;
-    string full_name = 2;
-    string email = 3;
-    string password = 4;
-}
-
-message RegisterUserResponse {
-    User user = 1;
-}
-
-message LoginUserRequest {
-    string username = 1;
-    string password = 2;
-}
-
-message LoginUserResponse {
-    User user = 1;
-    string session_id = 2;
-    string access_token = 3;
-    string refresh_token = 4;
-    google.protobuf.Timestamp access_token_expiry = 5;
-    google.protobuf.Timestamp refresh_token_expiry = 6;
-}
-
-message LogoutUserRequest {
-    string session_id = 1;
-}
-
-message LogoutUserResponse {
-    bool success = 1;
-}
-
-message UpdateUserRequest {
-    string id = 1;
-    string username = 2;
-    string email = 3;
-    string full_name = 4;
-}
-
-message UpdateUserResponse {
-    User user = 1;
-}
-
-message VerifyEmailRequest {
-    string email = 1;
-    string verification_code = 2;
-}
-
-message VerifyEmailResponse {
-    bool success = 1;
-}
 
 service AuthService {
     rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse);
