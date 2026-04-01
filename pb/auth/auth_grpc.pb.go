@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.1
 // - protoc             v3.21.12
-// source: auth/auth.proto
+// source: auth.proto
 
 package auth
 
@@ -29,7 +29,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AuthServiceClient interface {
-	RegisterUser(ctx context.Context, in *RegisterUserRequest, opts ...grpc.CallOption) (*RegisterUserResponse, error)
+	RegisterUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error)
 	LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error)
 	UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error)
 	VerifyEmail(ctx context.Context, in *VerifyEmailRequest, opts ...grpc.CallOption) (*VerifyEmailResponse, error)
@@ -43,9 +43,9 @@ func NewAuthServiceClient(cc grpc.ClientConnInterface) AuthServiceClient {
 	return &authServiceClient{cc}
 }
 
-func (c *authServiceClient) RegisterUser(ctx context.Context, in *RegisterUserRequest, opts ...grpc.CallOption) (*RegisterUserResponse, error) {
+func (c *authServiceClient) RegisterUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterUserResponse)
+	out := new(CreateUserResponse)
 	err := c.cc.Invoke(ctx, AuthService_RegisterUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -87,7 +87,7 @@ func (c *authServiceClient) VerifyEmail(ctx context.Context, in *VerifyEmailRequ
 // All implementations must embed UnimplementedAuthServiceServer
 // for forward compatibility.
 type AuthServiceServer interface {
-	RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error)
+	RegisterUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error)
 	LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error)
 	UpdateUser(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error)
 	VerifyEmail(context.Context, *VerifyEmailRequest) (*VerifyEmailResponse, error)
@@ -101,7 +101,7 @@ type AuthServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedAuthServiceServer struct{}
 
-func (UnimplementedAuthServiceServer) RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error) {
+func (UnimplementedAuthServiceServer) RegisterUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RegisterUser not implemented")
 }
 func (UnimplementedAuthServiceServer) LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error) {
@@ -135,7 +135,7 @@ func RegisterAuthServiceServer(s grpc.ServiceRegistrar, srv AuthServiceServer) {
 }
 
 func _AuthService_RegisterUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterUserRequest)
+	in := new(CreateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -147,7 +147,7 @@ func _AuthService_RegisterUser_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: AuthService_RegisterUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).RegisterUser(ctx, req.(*RegisterUserRequest))
+		return srv.(AuthServiceServer).RegisterUser(ctx, req.(*CreateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -231,5 +231,5 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "auth/auth.proto",
+	Metadata: "auth.proto",
 }

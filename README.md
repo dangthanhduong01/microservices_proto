@@ -1,6 +1,6 @@
 # Microservice Protobuf
 
-This repository contains protobuf definitions and generated Go code for 3 microservices.
+This repository contains protobuf definitions and generated Go code for 4 microservices.
 
 ## Services
 
@@ -9,6 +9,7 @@ This repository contains protobuf definitions and generated Go code for 3 micros
 | Order | `github.com/dangthanhduong01/microservices_proto/pb/order` | `v1.0.1` |
 | Payment | `github.com/dangthanhduong01/microservices_proto/pb/payment` | `v1.0.1` |
 | Shipping | `github.com/dangthanhduong01/microservices_proto/pb/shipping` | `v1.0.1` |
+| Auth | `github.com/dangthanhduong01/microservices_proto/pb/auth` | `v1.0.0` |
 
 ## Usage
 
@@ -19,6 +20,7 @@ require (
     github.com/dangthanhduong01/microservices_proto/pb/order v1.0.1
     github.com/dangthanhduong01/microservices_proto/pb/payment v1.0.1
     github.com/dangthanhduong01/microservices_proto/pb/shipping v1.0.1
+    github.com/dangthanhduong01/microservices_proto/pb/auth v1.0.0
 )
 ```
 
@@ -48,6 +50,12 @@ go mod tidy
 - `GetShipping(ctx context.Context, in *GetShippingRequest) (*GetShippingResponse, error)`
 - `UpdateShipping(ctx context.Context, in *UpdateShippingRequest) (*UpdateShippingResponse, error)`
 - `DeleteShipping(ctx context.Context, in *DeleteShippingRequest) (*DeleteShippingResponse, error)`
+
+### Auth Service
+- `RegisterUser(ctx context.Context, in *RegisterUserRequest) (*RegisterUserResponse, error)`
+- `LoginUser(ctx context.Context, in *LoginUserRequest) (*LoginUserResponse, error)`
+- `UpdateUser(ctx context.Context, in *UpdateUserRequest) (*UpdateUserResponse, error)`
+- `VerifyEmail(ctx context.Context, in *VerifyEmailRequest) (*VerifyEmailResponse, error)`
 
 ## Versioning
 

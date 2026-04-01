@@ -3,7 +3,7 @@ syntax = "proto3";
 import "user.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/dangthanhduong01/microservices_proto/auth";
+option go_package = "github.com/dangthanhduong01/microservices_proto/pb/auth";
 
 message LoginUserRequest {
     string username = 1;
@@ -27,12 +27,3 @@ message LogoutUserResponse {
     bool success = 1;
 }
 
-message CreateUserRequest {
-    string username = 1;
-    string email = 2;
-    string password = 3;
-}
-
-message CreateUserResponse {
-    User user = 1;
-}

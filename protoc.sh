@@ -17,8 +17,9 @@ git fetch --all && git checkout main
 # Create output directory
 mkdir -p pb/${SERVICE_NAME}
 
-protoc --go_out=./pb --go_opt=paths=source_relative \
-  --go-grpc_out=./pb --go-grpc_opt=paths=source_relative \
+protoc -I./${SERVICE_NAME} -I. \
+  --go_out=./pb/${SERVICE_NAME} --go_opt=paths=source_relative \
+  --go-grpc_out=./pb/${SERVICE_NAME} --go-grpc_opt=paths=source_relative \
   ./${SERVICE_NAME}/*.proto
 cd pb/${SERVICE_NAME}
 go mod init \

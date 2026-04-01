@@ -1,4 +1,4 @@
-syntax = "proto3";
+syoption go_package = "github.com/dangthanhduong01/microservices_proto/pb/payment";tax = "proto3";
 
 option go_package = "github.com/dangthanhduong01/microservices_proto/payment";
 

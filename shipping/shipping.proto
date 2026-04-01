@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package shipping;
 
-option go_package = "github.com/dangthanhduong01/microservices_proto/shipping";
+option go_package = "github.com/dangthanhduong01/microservices_proto/pb/shipping";
 
 message CreateShippingRequest {
     string order_id = 1;

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "user.proto";
 
-option go_package = "github.com/dangthanhduong01/microservices_proto/auth";
+option go_package = "github.com/dangthanhduong01/microservices_proto/pb/auth";
 
 message UpdateUserRequest {
     string id = 1;

@@ -1,16 +1,16 @@
 syntax = "proto3";
 
-import "register_user.proto";
+import "create_user.proto";
 import "login_user.proto";
 import "update_user.proto";
 import "verify_email.proto";
 
-option go_package = "github.com/dangthanhduong01/microservices_proto/auth";
+option go_package = "github.com/dangthanhduong01/microservices_proto/pb/auth";
 
 
 
 service AuthService {
-    rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse);
+    rpc RegisterUser(CreateUserRequest) returns (CreateUserResponse);
     rpc LoginUser(LoginUserRequest) returns (LoginUserResponse);
     rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
     rpc VerifyEmail(VerifyEmailRequest) returns (VerifyEmailResponse);
